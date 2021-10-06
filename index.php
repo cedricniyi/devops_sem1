@@ -23,17 +23,7 @@
 	$action = (isset($_GET['action'])) ? htmlentities($_GET['action']) : 'default';
 	# Quelle action est demandée ?
 
-    /**
-     * @return GenesisController
-     */
-    function getControllerGenesis()
-    {
-        require_once('controllers/GenesisController.php');
-        $controller = new GenesisController();
-        return $controller;
-    }
-
-    /**
+/**
      * @return BooksController
      */
     function getControllerBooks()
@@ -65,7 +55,7 @@
 
     switch($action) {
         case 'genesis':
-            $controller = getControllerGenesis();
+            $controller = ControllerManager::getControllerGenesis();
             break;
         case 'books':
             $controller = getControllerBooks();
