@@ -22,4 +22,14 @@ class ControllerManager
         $controller = new BooksController();
         return $controller;
     }
+
+    /**
+         * @return ContactController
+         */
+    public static function getControllerContact()
+    {
+        require_once('controllers/ContactController.php');
+        $controller = new ContactController();
+        return $controller;
+    }
 }

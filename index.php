@@ -24,16 +24,6 @@
 	# Quelle action est demandée ?
 
 /**
-     * @return ContactController
-     */
-    function getControllerContact()
-    {
-        require_once('controllers/ContactController.php');
-        $controller = new ContactController();
-        return $controller;
-    }
-
-    /**
      * @return HomeController
      */
     function getControllerHomeController()
@@ -51,7 +41,7 @@
             $controller = ControllerManager::getControllerBooks();
             break;
         case 'contact':
-            $controller = getControllerContact();
+            $controller = ControllerManager::getControllerContact();
             break;
         default: # Par défaut, le contrôleur de l'accueil est sélectionné
             $controller = getControllerHomeController();
