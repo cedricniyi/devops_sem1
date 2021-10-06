@@ -23,7 +23,7 @@
 	$action = (isset($_GET['action'])) ? htmlentities($_GET['action']) : 'default';
 	# Quelle action est demandée ?
 
-switch($action) {
+    switch($action) {
         case 'genesis':
             $controller = ControllerManager::getControllerGenesis();
             break;
