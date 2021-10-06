@@ -33,23 +33,50 @@
         return $controller;
     }
 
-    switch($action) {
-		case 'genesis':
-			$controller = getControllerGenesis();
+    /**
+     * @return BooksController
+     */
+    function getControllerBooks()
+    {
+        require_once('controllers/BooksController.php');
+        $controller = new BooksController();
+        return $controller;
+    }
+
+    /**
+     * @return ContactController
+     */
+    function getControllerContact()
+    {
+        require_once('controllers/ContactController.php');
+        $controller = new ContactController();
+        return $controller;
+    }
+
+/**
+ * @return HomeController
+ */
+function getControllerHomeController()
+{
+    require_once('controllers/HomeController.php');
+    $controller = new HomeController();
+    return $controller;
+}
+
+switch($action) {
+        case 'genesis':
+            $controller = getControllerGenesis();
             break;
-		case 'books':
-			require_once('controllers/BooksController.php');
-			$controller = new BooksController();
-			break;
-		case 'contact':
-			require_once('controllers/ContactController.php');	
-			$controller = new ContactController();
-			break;	
-		default: # Par défaut, le contrôleur de l'accueil est sélectionné
-			require_once('controllers/HomeController.php');
-			$controller = new HomeController();
-			break;
-	}
+        case 'books':
+            $controller = getControllerBooks();
+            break;
+        case 'contact':
+            $controller = getControllerContact();
+            break;
+        default: # Par défaut, le contrôleur de l'accueil est sélectionné
+            $controller = getControllerHomeController();
+            break;
+    }
 
 	# Exécution du contrôleur correspondant à l'action demandée
 	$controller->run();
