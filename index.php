@@ -53,17 +53,17 @@
         return $controller;
     }
 
-/**
- * @return HomeController
- */
-function getControllerHomeController()
-{
-    require_once('controllers/HomeController.php');
-    $controller = new HomeController();
-    return $controller;
-}
+    /**
+     * @return HomeController
+     */
+    function getControllerHomeController()
+    {
+        require_once('controllers/HomeController.php');
+        $controller = new HomeController();
+        return $controller;
+    }
 
-switch($action) {
+    switch($action) {
         case 'genesis':
             $controller = getControllerGenesis();
             break;
